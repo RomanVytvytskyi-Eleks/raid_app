@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">RaidApp</string>
+
+    <string name="nav_tab_home">Home</string>
+    <string name="nav_tab_do_donts">Dos/Do\'nts</string>
+    <string name="nav_tab_lawyers">Lawyers</string>
+    <string name="nav_tab_more">More</string>
+
+    <string name="btn_do">Do</string>
+    <string name="btn_dont">Don\'t</string>
+    <string name="btn_cancel">Cancel</string>
+    <string name="btn_call_dentons">Call Dentons</string>
+
+    <string name="label_are_you_being_raided">Are you being raided?</string>
+    <string name="label_select_location_and_call">Please select location and press red button to call your Dentons dawn raids response team</string>
+    <string name="label_all_calls_routed">All calls are routed via a German (+49) number to our local competition teams</string>
+    <string name="label_based_on_your_selection">Based on your selection</string>
+</resources>

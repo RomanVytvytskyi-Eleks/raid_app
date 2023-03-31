@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="dos">
+        <item>Have the inspectors shown to a room in which no documents or files are kept. If they refuse, do not force them. They will want to ensure there is no deletion of emails or destruction of documents. Give them that assurance.</item>
+        <item>Ask to see the authorising document setting out the subject matter and purpose of the inspection. Ask for proof of identity of the inspectors and evidence of their authorisation. Take copies of all the authorising documents. Politely ask whether inspections are taking place at other sites belonging to the company.</item>
+        <item>Contact and notify the most senior person at the site and the in-house lawyer (if there is one) of the inspection immediately.</item>
+        <item>Inform the inspectors that you are calling the company\'s external lawyers to obtain legal assistance. Call the Dentons hotline number. Email the authorising documents to the external lawyers.</item>
+        <item>Create a team to manage the inspection. One person from senior management should coordinate the company\'s response. The team should include, as a minimum, a dedicated note taker, the in- house lawyer (if there is one) and an IT specialist.</item>
+        <item>If the inspectors commence the inspection before external lawyers arrive, do not obstruct them but state that in doing so they are overruling your reasonable request. Ask them to note this.</item>
+        <item>Ask the inspectors to confirm how they intend to conduct the inspection i.e. what will they be doing, how will they be doing it and the expected duration.</item>
+        <item>Make sure each inspector is shadowed by someone from the company to take detailed notes on what they are looking at, documents that they take or copy, questions being asked and any other discussions that they may have.</item>
+        <item>The IT specialist should explain the IT environment and facilitate access to the computer servers, laptops, smartphones and any other devices requested. Detailed notes on what the inspectors are doing should be taken.</item>
+        <item>Ask for a list of any documents and/or evidence that the inspectors wish to take from the premises. Make sure that the inspectors confirm in writing receipt of such documents and/or evidence.</item>
+        <item>Ask the inspectors to place any documents which are legally privileged material in a separate envelope.</item>
+        <item>Answer factual questions about the documents (e.g. the titles/roles of people). If you or a colleague is served with a notice requiring an interview on substantive issues, request that the in- house counsel (if there is one) or an external lawyer be present.</item>
+    </string-array>
+
+    <string-array name="donts">
+        <item>Do not panic! Stay calm, co-operative and courteous but, if necessary, be firm while you seek legal advice.</item>
+        <item>Do not obstruct the inspectors or tell them what to do without asking your lawyers.</item>
+        <item>Do not destroy documents or delete electronic records. Check with external lawyers that it is appropriate to inform staff that an inspection is underway and that no documents should be deleted or destroyed. Seal any shredders to prevent this.</item>
+        <item>Do not allow inspectors to wander around the office unaccompanied.</item>
+        <item>Do not allow staff to discuss any matter with the inspectors. All communication should be directed to the team managing the inspection or your external lawyer.</item>
+        <item>Do not allow the inspectors to take irrelevant material clearly outside the scope of their authorising documents (check scope of product/services and geographic area covered, for example). When in doubt, consult the in-house counsel (if there is one) or the external lawyers.</item>
+        <item>Do not allow the inspectors to look at or take possession of legally privileged documents or correspondence with in- house or external lawyers. Request that it be set aside in an envelope until your external lawyers arrive.</item>
+        <item>Do not allow anyone to tell your company\'s competitor(s) that the company is being raided. Contact your press office or communications team so that they can consider a media statement, where appropriate.</item>
+        <item>Do not volunteer information which goes beyond answering specific questions about where documents can be found, explanations of those documents, the IT environment, how the business is structured and what certain jobs entail. Do not speculate, express opinions or blame others in your responses to the inspectors. Ask to obtain legal advice before agreeing to an interview.</item>
+    </string-array>
+</resources>
