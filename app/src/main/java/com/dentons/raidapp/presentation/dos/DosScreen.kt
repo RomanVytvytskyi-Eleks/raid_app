@@ -9,7 +9,8 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
-import androidx.compose.runtime.Composable
+import androidx.compose.runtime.*
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
@@ -26,6 +27,8 @@ import com.dentons.raidapp.R
 fun DosScreen() {
     val dosItems = stringArrayResource(id = R.array.dos)
     val dontsItems = stringArrayResource(id = R.array.donts)
+
+    var dosVisible by remember { mutableStateOf(true) }
 
     Column(
         modifier = Modifier
@@ -51,7 +54,7 @@ fun DosScreen() {
                     .height(60.dp)
                     .padding(end = 20.dp)
                     .fillMaxWidth(0.5f),
-                onClick = {}
+                onClick = { dosVisible = true }
             ) {
                 Text(
                     stringResource(id = R.string.btn_do),
@@ -66,7 +69,7 @@ fun DosScreen() {
                 modifier = Modifier
                     .height(60.dp)
                     .fillMaxWidth(),
-                onClick = {}
+                onClick = { dosVisible = false }
             ) {
                 Text(
                     stringResource(id = R.string.btn_dont),
@@ -76,14 +79,25 @@ fun DosScreen() {
                 )
             }
         }
-        LazyColumn(
-            modifier = Modifier
-                .height(600.dp)
-                .width(200.dp)
-                .fillMaxSize()
-        ) {
-            items(dosItems) { item ->
-                ListItem(item = item)
+        if (dosVisible) {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+
+            ) {
+                items(dosItems) { item ->
+                    ListItem(item = item)
+                }
+            }
+        } else {
+            LazyColumn(
+                modifier = Modifier
+                    .fillMaxSize()
+
+            ) {
+                items(dontsItems) { item ->
+                    ListItem(item = item)
+                }
             }
         }
     }
@@ -92,13 +106,34 @@ fun DosScreen() {
 @Composable
 fun ListItem(item: String) {
     Card(
-        Modifier
+        modifier = Modifier
             .padding(8.dp)
-            .fillMaxWidth(),
+            .fillMaxWidth()
+            .background(Color.White),
         shape = RoundedCornerShape(10.dp),
-        elevation = 5.dp
+        elevation = 4.dp
     ) {
-
+        Row(
+            verticalAlignment = Alignment.CenterVertically,
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color.White)
+        ) {
+            Box(
+                modifier = Modifier
+                    .width(4.dp)
+                    .fillMaxHeight()
+                    .background(Color.Magenta)
+            )
+            Text(
+                modifier = Modifier
+                    .padding(8.dp),
+                text = item,
+                color = Color.Black,
+                fontWeight = FontWeight.Normal,
+                fontSize = 16.sp
+            )
+        }
     }
 }
 

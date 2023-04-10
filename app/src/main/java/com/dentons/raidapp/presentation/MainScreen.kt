@@ -8,10 +8,7 @@ import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CornerSize
 import androidx.compose.material.*
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.LaunchedEffect
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.painterResource
@@ -94,6 +91,7 @@ fun MainScreen(
                     }
                 }
                 is MainViewModel.Effect.DialNumber -> {
+                    //todo add permission handling
                     context.startActivity(Intent(Intent.ACTION_DIAL).also {
                         it.data = Uri.parse("tel:${state.phoneNumber}")
                     })

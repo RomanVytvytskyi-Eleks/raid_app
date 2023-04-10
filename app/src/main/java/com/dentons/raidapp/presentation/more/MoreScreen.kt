@@ -1,12 +1,12 @@
 package com.dentons.raidapp.presentation.more
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Text
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
@@ -32,6 +32,57 @@ fun MoreScreen() {
             textAlign = TextAlign.Start,
             fontSize = 28.sp,
             modifier = Modifier.padding(vertical = 20.dp, horizontal = 20.dp),
+        )
+        TextButton(
+            colors = ButtonDefaults.buttonColors(backgroundColor = Color.White),
+            modifier = Modifier
+                .height(40.dp)
+                .align(alignment = Alignment.Start)
+                .fillMaxWidth(),
+            onClick = { }
+        ) {
+            Text(
+                stringResource(id = R.string.btn_contacts),
+                color = Color.DarkGray,
+                fontWeight = FontWeight.Normal,
+                textAlign = TextAlign.Start,
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(horizontal = 20.dp),
+                fontSize = 18.sp
+            )
+        }
+        Spacer(
+            modifier = Modifier
+                .height(1.dp)
+                .fillMaxWidth()
+                .background(Color.Gray)
+        )
+
+        TextButton(
+            colors = ButtonDefaults.buttonColors(backgroundColor = Color.White),
+            modifier = Modifier
+                .height(40.dp)
+                .fillMaxWidth(),
+
+            onClick = { }
+        ) {
+            Text(
+                stringResource(id = R.string.btn_terms),
+                color = Color.DarkGray,
+                fontWeight = FontWeight.Normal,
+                textAlign = TextAlign.Start,
+                modifier = Modifier
+                    .weight(1f)
+                    .padding(horizontal = 20.dp),
+                fontSize = 18.sp
+            )
+        }
+        Spacer(
+            modifier = Modifier
+                .height(1.dp)
+                .fillMaxWidth()
+                .background(Color.Gray)
         )
     }
 }

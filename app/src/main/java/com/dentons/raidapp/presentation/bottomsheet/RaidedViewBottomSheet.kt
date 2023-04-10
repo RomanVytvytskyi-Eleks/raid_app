@@ -1,5 +1,6 @@
 package com.dentons.raidapp.presentation.bottomsheet
 
+import android.util.Log
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -16,13 +17,14 @@ import androidx.compose.ui.unit.dp
 import com.dentons.raidapp.R
 import com.dentons.raidapp.presentation.MainViewModel
 import com.dentons.raidapp.presentation.RaidedView
+import com.dentons.raidapp.presentation.composables.CountryListView
 import com.dentons.raidapp.ui.theme.RED
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun RaidedViewBottomSheet(
-    sheetState: ModalBottomSheetState,
+    raidedViewSheetState: ModalBottomSheetState,
     onEventSent: (event: MainViewModel.Event) -> Unit
 ) {
     Box(
@@ -30,9 +32,9 @@ fun RaidedViewBottomSheet(
             .fillMaxWidth()
     ) {
         ModalBottomSheetLayout(
-            sheetState = sheetState,
+            sheetState = raidedViewSheetState,
             modifier = Modifier.fillMaxSize(),
-            sheetContent = { AlertCallContent(sheetState, onEventSent) }) {
+            sheetContent = { AlertCallContent(raidedViewSheetState, onEventSent) }) {
         }
     }
 }
@@ -43,13 +45,25 @@ fun AlertCallContent(
     sheetState: ModalBottomSheetState,
     onEventSent: (event: MainViewModel.Event) -> Unit
 ) {
+    val raidedViewSheetState =
+        rememberModalBottomSheetState(
+            ModalBottomSheetValue.Hidden,
+            skipHalfExpanded = true
+        )
+
+    val countriesViewSheetState =
+        rememberModalBottomSheetState(
+            ModalBottomSheetValue.Hidden,
+            skipHalfExpanded = true
+        )
+
     Column(
         modifier = Modifier
             .background(colorResource(id = R.color.grey))
             .fillMaxSize()
     ) {
         val coroutineScope = rememberCoroutineScope()
-        RaidedView()
+        RaidedView(countriesViewSheetState)
         TextButton(
             shape = RoundedCornerShape(50.dp),
             colors = ButtonDefaults.buttonColors(backgroundColor = Color.White),
@@ -86,11 +100,20 @@ fun AlertCallContent(
             Text(stringResource(id = R.string.btn_call_dentons), color = Color.White)
         }
     }
+
+    CountryListView(onSelectItem = {
+        Log.d("test", "Country selected - $it")
+    }, countriesViewSheetState)
 }
 
 @OptIn(ExperimentalMaterialApi::class)
 @Preview(showBackground = true)
 @Composable
 fun RaidedViewBottomSheetPreview() {
-//    RaidedViewBottomSheet(null)
+    val modalBottomSheetState =
+        rememberModalBottomSheetState(
+            ModalBottomSheetValue.Hidden,
+            skipHalfExpanded = true
+        )
+    RaidedViewBottomSheet(modalBottomSheetState,{})
 }
