@@ -79,24 +79,20 @@ fun DosScreen() {
                 )
             }
         }
-        if (dosVisible) {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
 
-            ) {
+        LazyColumn(
+            modifier = Modifier
+                .fillMaxSize()
+                .padding(top = 10.dp)
+
+        ) {
+            if (dosVisible) {
                 items(dosItems) { item ->
-                    ListItem(item = item)
+                    ListItem(item = item, Color.Green)
                 }
-            }
-        } else {
-            LazyColumn(
-                modifier = Modifier
-                    .fillMaxSize()
-
-            ) {
+            } else {
                 items(dontsItems) { item ->
-                    ListItem(item = item)
+                    ListItem(item = item, Color.Red)
                 }
             }
         }
@@ -104,7 +100,7 @@ fun DosScreen() {
 }
 
 @Composable
-fun ListItem(item: String) {
+fun ListItem(item: String, color: Color) {
     Card(
         modifier = Modifier
             .padding(8.dp)
@@ -116,14 +112,15 @@ fun ListItem(item: String) {
         Row(
             verticalAlignment = Alignment.CenterVertically,
             modifier = Modifier
-                .fillMaxSize()
+                .fillMaxWidth()
+                .height(IntrinsicSize.Min)
                 .background(Color.White)
         ) {
             Box(
                 modifier = Modifier
-                    .width(4.dp)
+                    .width(5.dp)
                     .fillMaxHeight()
-                    .background(Color.Magenta)
+                    .background(color)
             )
             Text(
                 modifier = Modifier
