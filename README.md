@@ -51,8 +51,8 @@ There are a three core components described:
 [Git Flow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow)
 is used for this project.
 
-Branch name should contain proper prefix and ticket name - ```branch_prefix/ticket_name```. Example, ```feature/GRGO-4319```.
-In case changes was made without ticket name branch with self explainable name. Example, ```feature/hide_freedom_to_succeed```
+Branch name should contain proper prefix and ticket name - ```branch_prefix/ticket_name```. Example, ```feature/readme_file```.
+In case changes was made without ticket name branch with self explainable name. Example, ```feature/readme_file```
 
 
 Please, fill free to edit this README ;)
