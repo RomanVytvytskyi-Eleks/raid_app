@@ -18,5 +18,6 @@
     <string name="label_all_calls_routed">All calls are routed via a German (+49) number to our local competition teams</string>
     <string name="label_based_on_your_selection">Based on your selection</string>
     <string name="label_select_country">Select raided country</string>
-    <string name="label_contact_info">For general inquiry or advice on our premium and enterprise offerings please contact us directly at dawnraids@dentons.com. We look forward to hearing from you!</string>
+    <string name="label_contact_info">For general inquiry or advice on our premium and enterprise offerings please contact us directly at %s. We look forward to hearing from you!</string>
+    <string name="label_contact_email">dawnraids@dentons.com</string>
 </resources>

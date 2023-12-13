@@ -2,10 +2,9 @@ package com.dentons.raidapp.presentation.more
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.material.ButtonDefaults
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
+import androidx.compose.material.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -17,9 +16,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.dentons.raidapp.R
+import kotlinx.coroutines.launch
 
+@OptIn(ExperimentalMaterialApi::class)
 @Composable
 fun MoreScreen() {
+    val coroutineScope = rememberCoroutineScope()
+    val modalBottomSheetStateContacts =
+        rememberModalBottomSheetState(
+            ModalBottomSheetValue.Hidden,
+            skipHalfExpanded = true
+        )
+    val modalBottomSheetStateTerms =
+        rememberModalBottomSheetState(
+            ModalBottomSheetValue.Hidden,
+            skipHalfExpanded = true
+        )
+
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -39,7 +52,11 @@ fun MoreScreen() {
                 .height(40.dp)
                 .align(alignment = Alignment.Start)
                 .fillMaxWidth(),
-            onClick = { }
+            onClick = {
+                coroutineScope.launch {
+                    modalBottomSheetStateContacts.show()
+                }
+            }
         ) {
             Text(
                 stringResource(id = R.string.btn_contacts),
@@ -65,7 +82,11 @@ fun MoreScreen() {
                 .height(40.dp)
                 .fillMaxWidth(),
 
-            onClick = { }
+            onClick = {
+                coroutineScope.launch {
+                    modalBottomSheetStateTerms.show()
+                }
+            }
         ) {
             Text(
                 stringResource(id = R.string.btn_terms),
@@ -85,6 +106,9 @@ fun MoreScreen() {
                 .background(Color.Gray)
         )
     }
+
+    ContactsView(modalBottomSheetStateContacts)
+    TermsView(modalBottomSheetStateTerms)
 }
 
 @Preview(showBackground = true)
