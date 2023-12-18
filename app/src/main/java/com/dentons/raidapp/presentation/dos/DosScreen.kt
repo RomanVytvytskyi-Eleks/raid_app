@@ -1,7 +1,19 @@
 package com.dentons.raidapp.presentation.dos
 
+import androidx.compose.animation.animateContentSize
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -9,7 +21,11 @@ import androidx.compose.material.ButtonDefaults
 import androidx.compose.material.Card
 import androidx.compose.material.Text
 import androidx.compose.material.TextButton
-import androidx.compose.runtime.*
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -43,6 +59,7 @@ fun DosScreen() {
             textAlign = TextAlign.Start,
             fontSize = 28.sp,
         )
+
         Row(
             modifier = Modifier
                 .padding(top = 20.dp)
@@ -53,7 +70,12 @@ fun DosScreen() {
                 modifier = Modifier
                     .height(60.dp)
                     .padding(end = 20.dp)
-                    .fillMaxWidth(0.5f),
+                    .animateContentSize()
+                    .fillMaxWidth(if (dosVisible) 0.7f else 0.3f)
+                    .clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = null
+                    ) {},
                 onClick = { dosVisible = true }
             ) {
                 Text(
@@ -68,7 +90,12 @@ fun DosScreen() {
                 colors = ButtonDefaults.buttonColors(backgroundColor = Color.White),
                 modifier = Modifier
                     .height(60.dp)
-                    .fillMaxWidth(),
+                    .fillMaxWidth().animateContentSize()
+                    .fillMaxWidth(if (!dosVisible) 0.7f else 0.3f)
+                    .clickable(
+                        interactionSource = remember { MutableInteractionSource() },
+                        indication = null
+                    ) {},
                 onClick = { dosVisible = false }
             ) {
                 Text(
@@ -96,6 +123,29 @@ fun DosScreen() {
                 }
             }
         }
+    }
+}
+@Composable
+fun TabButton(title: String, selected: Boolean, onClick: () -> Unit){
+    TextButton(
+        shape = RoundedCornerShape(30.dp),
+        colors = ButtonDefaults.buttonColors(backgroundColor = Color.White),
+        modifier = Modifier
+            .height(60.dp)
+            .fillMaxWidth().animateContentSize()
+            .fillMaxWidth(if (selected) 0.7f else 0.3f)
+            .clickable(
+                interactionSource = remember { MutableInteractionSource() },
+                indication = null
+            ) {},
+        onClick = onClick
+    ) {
+        Text(
+            text = title,
+            color = Color.DarkGray,
+            fontWeight = FontWeight.Bold,
+            fontSize = 20.sp
+        )
     }
 }
 
